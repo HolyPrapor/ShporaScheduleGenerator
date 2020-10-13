@@ -39,7 +39,7 @@ namespace ShporaScheduleGenerator
                     else if (line[0] == '2')
                         mentorGroups.Last().AddMentor(line.Substring(2, line.Length - 2), MentorReviewGroup.OnlySecond);
                     else
-                        mentorGroups.Last().AddMentor(line.Substring(2, line.Length - 2));
+                        mentorGroups.Last().AddMentor(line);
                     line = Console.ReadLine();
                 }
 
@@ -47,7 +47,7 @@ namespace ShporaScheduleGenerator
             }
 
             foreach (var mentor in ScheduleGenerator.GenerateSchedule(firstStudentGroup, secondStudentGroup,
-                mentorGroups, 1))
+                mentorGroups))
             {
                 Console.WriteLine(mentor.Name);
                 for (var i = 0; i < mentor.ReviewedStudents.Count - 1; i++)

@@ -20,6 +20,7 @@ namespace ShporaScheduleGenerator
                 return false;
             // I suppose that every time the same people will have 2 students.
             var mentor = Mentors
+               .OrderBy(x => new Random().Next())
                 .Where(x =>
                 {
                     if (@group == Group.First)
